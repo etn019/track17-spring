@@ -38,7 +38,7 @@ public class CountWords {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         while ((str = reader.readLine()) != null) {
             try {
-                sum += Integer.parseInt(str);
+                sum += Long.parseLong(str);
             } catch (NumberFormatException e) {
 
             }
