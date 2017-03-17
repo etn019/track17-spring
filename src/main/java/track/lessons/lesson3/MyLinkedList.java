@@ -31,7 +31,7 @@ public class MyLinkedList extends List implements Stack, Queue {
     private Node head;
 
     @Override
-    void add(int item) {
+    public void add(int item) {
         if (size() == 0) {
             head = new Node(null, null, item);
         } else {
