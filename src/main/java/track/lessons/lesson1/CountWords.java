@@ -33,12 +33,14 @@ public class CountWords {
      * @return - целое число - сумма всех чисел из файла
      */
     public long countNumbers(File file) throws Exception {
-        int sum = 0;
+        long sum = 0;
+        int summand;
         String str;
         BufferedReader reader = new BufferedReader(new FileReader(file));
         while ((str = reader.readLine()) != null) {
             try {
-                sum += Long.parseLong(str);
+                summand = Integer.parseInt(str);
+                sum += summand;
             } catch (NumberFormatException e) {
 
             }
@@ -59,7 +61,7 @@ public class CountWords {
         StringBuilder con = new StringBuilder();
         String str;
         BufferedReader reader = new BufferedReader(new FileReader(file));
-        while ((str = reader.readLine()) != null) {
+        while ((str = (reader.readLine())) != null) {
             if (str.length() != 0 && !str.matches("^-?\\d+$")) {
                 con.append(" ").append(str);
             }
