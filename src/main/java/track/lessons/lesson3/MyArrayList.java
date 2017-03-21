@@ -43,18 +43,15 @@ public class MyArrayList extends List {
     @Override
     public int remove(int idx) throws NoSuchElementException {
         if (idx < size() && idx >= 0) {
-            int deleted = list[idx];
-            for (int i = idx; i < (size() - 1); i++) {
-                list[i] = list[i + 1];
+
+            int[] tmp = new int[list.length - 1];
+            System.arraycopy(list, 0, tmp, 0, idx);
+            if (idx != list.length - 1) {
+                System.arraycopy(list, idx + 1, tmp, idx, tmp.length - idx);
             }
-            deleted = deleted;
-            list[size() - 1] = 0;
             size--;
-            if (list.length - size() >= defaultCapacity) {
-                int[] tmp = new int[list.length - defaultCapacity];
-                System.arraycopy(list, 0, tmp, 0, size());
-                list = tmp;
-            }
+            int deleted = list[idx];
+            list = tmp;
             return deleted;
         } else {
             throw new NoSuchElementException();

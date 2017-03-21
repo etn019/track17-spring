@@ -106,4 +106,5 @@ public class MyLinkedList extends List implements Stack, Queue {
     public int dequeu() {
         return remove(0);
     }
+
 }
